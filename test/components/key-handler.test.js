@@ -90,7 +90,7 @@ describe('KeyHandler', () => {
 
   it('prioritizes key value over code/name', () => {
     const handler = sinon.spy();
-    mount(<KeyHandler keyCode={M} keyValue={ARROW_LEFT} onKeyHandle={handler} />);
+    mount(<KeyHandler keyCode={M} keyName="m" keyValue={ARROW_LEFT} onKeyHandle={handler} />);
 
     triggerKeyEvent(KEYUP, S, ARROW_LEFT);
 

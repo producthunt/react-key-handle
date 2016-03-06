@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 
-import {isInput, keyNameVals} from 'utils';
+import {isInput, keyValues} from 'utils';
 
 describe('isInput', () => {
   it('returns true if the element is an input', () => {
@@ -20,12 +20,16 @@ describe('isInput', () => {
   });
 });
 
-describe('keyNameVals', () => {
+describe('keyValues', () => {
   it('returns the key value of the given key name', () => {
-    expect(keyNameVals('left')).to.be.equal('ArrowLeft');
-    expect(keyNameVals('up')).to.be.equal('ArrowUp');
-    expect(keyNameVals('right')).to.be.equal('ArrowRight');
-    expect(keyNameVals('down')).to.be.equal('ArrowDown');
-    expect(keyNameVals('numlock')).to.be.equal('numlock');
+    expect(keyValues('left')).to.be.equal('ArrowLeft');
+    expect(keyValues('up')).to.be.equal('ArrowUp');
+    expect(keyValues('right')).to.be.equal('ArrowRight');
+    expect(keyValues('down')).to.be.equal('ArrowDown');
+
+  });
+
+  it('falls back to the key name if there is no key value for given key name', () => {
+    expect(keyValues('numlock')).to.be.equal('numlock');
   });
 });
