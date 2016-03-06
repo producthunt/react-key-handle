@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 
-import {isInput, keyValues} from 'utils';
+import {isInput, keyValues, keyValueFromCode, matchesKeyboardEvent} from 'utils';
 
 describe('isInput', () => {
   it('returns true if the element is an input', () => {
@@ -54,5 +54,52 @@ describe('keyValues', () => {
 
   it('falls back to the key name if there is no key value for given key name', () => {
     expect(keyValues('break')).to.be.equal('break');
+  });
+});
+
+describe('keyValueFromCode', () => {
+  it('returns the key value of a given key code', () => {
+    expect(keyValueFromCode(13)).to.be.equal('Enter');
+    expect(keyValueFromCode(32)).to.be.equal(' ');
+  });
+});
+
+describe('matchesKeyboardEvent', () => {
+  describe('matches KeyboardEvent.key against', () => {
+    const arrowUpValueEvent = new window.KeyboardEvent('keyup', {key: 'ArrowUp'});
+
+    it('keyValue Props property', () => {
+      expect(matchesKeyboardEvent(arrowUpValueEvent, {keyValue: 'ArrowUp'})).to.be.true;
+      expect(matchesKeyboardEvent(arrowUpValueEvent, {keyValue: 'ArrowDown'})).to.be.false;
+    });
+
+    it('keyCode Props property', () => {
+      expect(matchesKeyboardEvent(arrowUpValueEvent, {keyCode: 38})).to.be.true;
+      expect(matchesKeyboardEvent(arrowUpValueEvent, {keyCode: 40})).to.be.false;
+    });
+
+    it('keyName Props property', () => {
+      expect(matchesKeyboardEvent(arrowUpValueEvent, {keyName: 'up'})).to.be.true;
+      expect(matchesKeyboardEvent(arrowUpValueEvent, {keyName: 'down'})).to.be.false;
+    });
+  });
+
+  describe('matches KeyboardEvent.keyCode against', () => {
+    const arrowUpCodeEvent = new window.KeyboardEvent('keyup', {keyCode: 38});
+
+    it('keyValue Props property', () => {
+      expect(matchesKeyboardEvent(arrowUpCodeEvent, {keyValue: 'ArrowUp'})).to.be.true;
+      expect(matchesKeyboardEvent(arrowUpCodeEvent, {keyValue: 'ArrowDown'})).to.be.false;
+    });
+
+    it('keyCode Props property', () => {
+      expect(matchesKeyboardEvent(arrowUpCodeEvent, {keyCode: 38})).to.be.true;
+      expect(matchesKeyboardEvent(arrowUpCodeEvent, {keyCode: 40})).to.be.false;
+    });
+
+    it('keyName Props property', () => {
+      expect(matchesKeyboardEvent(arrowUpCodeEvent, {keyName: 'up'})).to.be.true;
+      expect(matchesKeyboardEvent(arrowUpCodeEvent, {keyName: 'down'})).to.be.false;
+    });
   });
 });
