@@ -31,7 +31,7 @@ Unless you want absolute flexibility we highly recommend you to use one of the d
 
 ### `keyHandler` decorator
 
-The decorator will decorate the given component with a `keyCode` and `keyName`
+The decorator will decorate the given component with a `keyValue`, `keyCode` and `keyName`
 property.
 
 ```jsx
@@ -60,17 +60,19 @@ The prop types of the `keyHandler` decorator are:
 
 ```js
 type Props = {
+  keyValue: ?string,
   keyCode: ?number,
   keyEventName: ?string,
   keyName: ?string,
 }
 ```
 
+* `keyValue` can be any given [W3C keyboard key value](https://www.w3.org/TR/DOM-Level-3-Events-key/)
 * `keyCode` can be any given [keyboard code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode)
 * `keyEventName` will default to `'keyup'`
 * `keyName` can be any given character
 
-You should either pass a `keyCode` or a `keyName`, not both.
+You should either pass a `keyValue`, a `keyCode` or a `keyName`, not both.
 
 ### `keyToggleHandler` decorator
 
@@ -119,6 +121,7 @@ The prop types of the `KeyHandler` component are:
 
 ```js
 type Props = {
+  keyValue: ?string,
   keyCode: ?number,
   keyEventName: string,
   keyName: ?string,
@@ -126,12 +129,13 @@ type Props = {
 };
 ```
 
+* `keyValue` can be any given [W3C keyboard key value](https://www.w3.org/TR/DOM-Level-3-Events-key/)
 * `keyCode` can be any given [keyboard code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode)
 * `keyEventName` will default to `'keyup'`
 * `keyName` can be any given character
 * `onKeyHandle` is the function that is being called when key code is handled
 
-You should either pass a `keyCode` or a `keyName`, not both.
+You should either pass a `keyValue`, a `keyCode` or a `keyName`, not both.
 
 ### Form key handling
 
