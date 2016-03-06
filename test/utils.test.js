@@ -26,5 +26,6 @@ describe('keyNameVals', () => {
     expect(keyNameVals('up')).to.be.equal('ArrowUp');
     expect(keyNameVals('right')).to.be.equal('ArrowRight');
     expect(keyNameVals('down')).to.be.equal('ArrowDown');
+    expect(keyNameVals('numlock')).to.be.equal('numlock');
   });
 });
