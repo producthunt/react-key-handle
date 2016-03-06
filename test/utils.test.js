@@ -1,6 +1,6 @@
 import {expect} from 'chai';
 
-import {isInput} from 'utils';
+import {isInput, keyNameVals} from 'utils';
 
 describe('isInput', () => {
   it('returns true if the element is an input', () => {
@@ -17,5 +17,14 @@ describe('isInput', () => {
 
   it('returns false if the element is not an input or textarea', () => {
     expect(isInput({ tagName: 'A' })).to.be.false;
+  });
+});
+
+describe('keyNameVals', () => {
+  it('returns the key value of the given key name', () => {
+    expect(keyNameVals('left')).to.be.equal('ArrowLeft');
+    expect(keyNameVals('up')).to.be.equal('ArrowUp');
+    expect(keyNameVals('right')).to.be.equal('ArrowRight');
+    expect(keyNameVals('down')).to.be.equal('ArrowDown');
   });
 });

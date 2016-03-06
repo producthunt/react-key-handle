@@ -7,11 +7,22 @@ import KeyHandler, {KEYUP, KEYDOWN} from 'components/key-handler';
 
 const M = 77;
 const S = 83;
+const ARROW_LEFT = 'ArrowLeft';
+const ARROW_RIGHT = 'ArrowRight';
 
 describe('KeyHandler', () => {
   it('renders nothing', () => {
     const el = render(<KeyHandler />);
     expect(el).to.be.blank();
+  });
+
+  it('handles key up events when key value match', () => {
+    const handler = sinon.spy();
+    mount(<KeyHandler keyValue={ARROW_LEFT} onKeyHandle={handler} />);
+
+    triggerKeyEvent(KEYUP, undefined, ARROW_LEFT);
+
+    expect(handler.calledOnce).to.equal(true);
   });
 
   it('handles key up events when key code match', () => {
@@ -30,6 +41,15 @@ describe('KeyHandler', () => {
     triggerKeyEvent(KEYUP, M);
 
     expect(handler.calledOnce).to.equal(true);
+  });
+
+  it('ignores key up events when no key value match', () => {
+    const handler = sinon.spy();
+    mount(<KeyHandler keyValue={ARROW_LEFT} onKeyHandle={handler} />);
+
+    triggerKeyEvent(KEYUP, undefined, ARROW_RIGHT);
+
+    expect(handler.calledOnce).to.equal(false);
   });
 
   it('ignores key up events when no key code match', () => {
@@ -67,9 +87,18 @@ describe('KeyHandler', () => {
 
     expect(handler.calledOnce).to.equal(true);
   });
+
+  it('prioritizes key value over code/name', () => {
+    const handler = sinon.spy();
+    mount(<KeyHandler keyCode={M} keyValue={ARROW_LEFT} onKeyHandle={handler} />);
+
+    triggerKeyEvent(KEYUP, S, ARROW_LEFT);
+
+    expect(handler.calledOnce).to.equal(true);
+  });
 });
 
-function triggerKeyEvent(eventName, keyCode) {
-  const event = new window.KeyboardEvent(eventName, { keyCode });
+function triggerKeyEvent(eventName, keyCode, keyValue = undefined) {
+  const event = new window.KeyboardEvent(eventName, { keyCode, key: keyValue });
   document.dispatchEvent(event);
 }
