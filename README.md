@@ -4,11 +4,16 @@
 
 React component to handle keyboard events (such as keyup, keydown & keypress).
 
+## Testimonials
+
+> <div>“Happy to see that react-key-handler is SSR safe :+1:”</div>
+> [Veselin Todorov](https://github.com/vesln), Chai.js core
+
 ## Table of Contents
 
 1. [Installation](#installation)
 1. [Usage](#usage)
-  1. [Decorators](#decorators)
+  1. [Higher-order Components](#higher-order-components)
   1. [Component](#component)
   1. [Form key handling](#form-key-handling)
 1. [Key event names](#key-event-names)
@@ -27,26 +32,26 @@ $ npm install react-key-handler --save
 
 You can use `react-key-handler` library in two flavours:
 
-- [decorators](#decorators)
+- [higher-order components](#higher-order-components)
 - [component](#component)
 
-Unless you want absolute flexibility we recommend you to use a decorator in favour
+Unless you want absolute flexibility we recommend you to use a higher-order component in favour
 of the component.
 
-Both decorators use the `KeyHandler` component internally, for a full understanding
-be sure to checkout out [the implementation](lib/components/key-handler.js).
+### Higher-order Components
 
-### Decorators
+This library includes two similar higher-order components, but with a different puprose:
 
-This library includes two different decorators:
+| Higher-order Component | Purpose             |
+| ---------------------- | ------------------- |
+| `keyHandler`           | Handles key changes |
+| `keyToggleHandler`     | Handles key toggles |
 
-| Decorator          | Handles     |
-| ------------------ | ----------- |
-| `keyHandler`       | Key changes |
-| `keyToggleHandler` | Key toggles |
+Both have the same API and will decorate the given component with a `keyValue`, `keyCode` 
+and `keyName` property.
 
-Both decorators have the same API and both will decorate the given component with
-a `keyValue`, `keyCode` and `keyName` property.
+Internally the `KeyHandler` component is used, for a full understanding be sure to 
+check out [the implementation](lib/components/key-handler.js).
 
 ```jsx
 import React from 'react';
