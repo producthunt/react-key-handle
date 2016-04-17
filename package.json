@@ -48,7 +48,7 @@
     "eslint": "^2.6.0",
     "eslint-loader": "^1.3.0",
     "eslint-plugin-flow-vars": "^0.3.0",
-    "eslint-plugin-react": "^4.2.3",
+    "eslint-plugin-react": "^5.0.0",
     "flow-bin": "^0.22.1",
     "jsdom": "^8.2.0",
     "mocha": "^2.4.5",
