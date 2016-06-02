@@ -11,6 +11,14 @@ describe('isInput', () => {
     expect(isInput({ tagName: 'TEXTAREA' })).to.be.true;
   });
 
+  it('returns true if the element is contenteditable', () => {
+    expect(isInput({ getAttribute: function() { return true; } })).to.be.true;
+  });
+
+  it('returns false if the element is not contenteditable', () => {
+    expect(isInput({ getAttribute: function() { return false; } })).to.be.false;
+  });
+
   it('returns false if the element is not an input or textarea', () => {
     expect(isInput({ tagName: 'A' })).to.be.false;
   });
