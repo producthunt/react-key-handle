@@ -50,7 +50,7 @@
     "eslint-plugin-flow-vars": "^0.3.0",
     "eslint-plugin-react": "^5.0.0",
     "flow-bin": "^0.22.1",
-    "jsdom": "^8.2.0",
+    "jsdom": "^9.3.0",
     "mocha": "^2.4.5",
     "react": "^0.14.0 || ^15.0.0-0",
     "react-addons-test-utils": "^0.14.0 || ^15.0.0-0",
