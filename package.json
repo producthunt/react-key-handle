@@ -51,7 +51,7 @@
     "eslint-plugin-react": "^5.0.0",
     "flow-bin": "^0.22.1",
     "jsdom": "^8.2.0",
-    "mocha": "^2.4.5",
+    "mocha": "^2.5.0",
     "react": "^0.14.0 || ^15.0.0-0",
     "react-addons-test-utils": "^0.14.0 || ^15.0.0-0",
     "react-dom": "^0.14.0 || ^15.0.0-0",
