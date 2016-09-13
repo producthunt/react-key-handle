@@ -34,15 +34,6 @@ describe('KeyHandler', () => {
     expect(handler.calledOnce).to.equal(true);
   });
 
-  it('handles key up events when key name match', () => {
-    const handler = sinon.spy();
-    mount(<KeyHandler keyName="m" onKeyHandle={handler} />);
-
-    triggerKeyEvent(KEYUP, M);
-
-    expect(handler.calledOnce).to.equal(true);
-  });
-
   it('ignores key up events when no key value match', () => {
     const handler = sinon.spy();
     mount(<KeyHandler keyValue={ARROW_LEFT} onKeyHandle={handler} />);
@@ -55,15 +46,6 @@ describe('KeyHandler', () => {
   it('ignores key up events when no key code match', () => {
     const handler = sinon.spy();
     mount(<KeyHandler keyCode={S} onKeyHandle={handler} />);
-
-    triggerKeyEvent(KEYUP, M);
-
-    expect(handler.calledOnce).to.equal(false);
-  });
-
-  it('ignores key up events when no key name match', () => {
-    const handler = sinon.spy();
-    mount(<KeyHandler keyName="s" onKeyHandle={handler} />);
 
     triggerKeyEvent(KEYUP, M);
 
@@ -97,19 +79,6 @@ describe('KeyHandler', () => {
     expect(handler.calledOnce).to.equal(false);
 
     triggerKeyEvent(KEYUP, undefined, ARROW_LEFT);
-
-    expect(handler.calledOnce).to.equal(true);
-  });
-
-  it('prioritizes key code over name', () => {
-    const handler = sinon.spy();
-    mount(<KeyHandler keyCode={M} keyName="s" onKeyHandle={handler} />);
-
-    triggerKeyEvent(KEYUP, S);
-
-    expect(handler.calledOnce).to.equal(false);
-
-    triggerKeyEvent(KEYUP, M);
 
     expect(handler.calledOnce).to.equal(true);
   });

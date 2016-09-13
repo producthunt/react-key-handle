@@ -41,11 +41,6 @@ describe('matchesKeyboardEvent', () => {
       expect(matchesKeyboardEvent(arrowUpValueEvent, {keyCode: 38})).to.be.false;
       expect(matchesKeyboardEvent(arrowUpValueEvent, {keyCode: 40})).to.be.false;
     });
-
-    it('keyName Props property', () => {
-      expect(matchesKeyboardEvent(arrowUpValueEvent, {keyName: 'up'})).to.be.false;
-      expect(matchesKeyboardEvent(arrowUpValueEvent, {keyName: 'down'})).to.be.false;
-    });
   });
 
   describe('matches KeyboardEvent.keyCode against', () => {
@@ -59,11 +54,6 @@ describe('matchesKeyboardEvent', () => {
     it('keyCode Props property', () => {
       expect(matchesKeyboardEvent(arrowUpCodeEvent, {keyCode: 38})).to.be.true;
       expect(matchesKeyboardEvent(arrowUpCodeEvent, {keyCode: 40})).to.be.false;
-    });
-
-    it('keyName Props property', () => {
-      expect(matchesKeyboardEvent(arrowUpCodeEvent, {keyName: 'up'})).to.be.true;
-      expect(matchesKeyboardEvent(arrowUpCodeEvent, {keyName: 'down'})).to.be.false;
     });
   });
 });

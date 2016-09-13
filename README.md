@@ -17,7 +17,7 @@ React component to handle keyboard events (such as keyup, keydown & keypress).
   1. [Component](#component)
   1. [Form key handling](#form-key-handling)
 1. [Key event names](#key-event-names)
-1. [`keyValue`, `keyCode`, `keyName`](#keyvalue-keycode-keyname)
+1. [`keyValue`, `keyCode`](#keyvalue-keycode)
 1. [Development](#development)
 1. [Contributing](#contributing)
 1. [License](#license)
@@ -47,8 +47,8 @@ This library includes two similar higher-order components, but with a different 
 | `keyHandler`           | Handles key changes |
 | `keyToggleHandler`     | Handles key toggles |
 
-Both have the same API and will decorate the given component with a `keyValue`, `keyCode`
-and `keyName` property.
+Both have the same API and will decorate the given component with a `keyValue`
+and `keyCode` property.
 
 Internally the `KeyHandler` component is used, for a full understanding be sure to
 check out [the implementation](lib/components/key-handler.js).
@@ -80,9 +80,8 @@ The prop types of the `KeyHandler` component are:
 | keyEventName | string   | yes        | `'keyup'` | `'keydown'`, `'keypress'` or `'keyup'` |
 | keyValue     | string   | yes __\*__ |           | Any given [KeyboardEvent.key]          |
 | keyCode      | number   | yes __\*__ |           | Any given [KeyboardEvent.keyCode]      |
-| keyName      | string   | yes __\*__ |           | Any given character                    |
 
-__\*__ You should pass only one of these three props: `keyValue`, `keyCode` or `keyName`.
+__\*__ You should pass only one of these two props: `keyValue` or `keyCode`.
 
 [Examples](demo/components/examples/decorators/)
 
@@ -129,10 +128,9 @@ The prop types of the `KeyHandler` component are:
 | keyEventName | string   | yes        | `'keyup'` | `'keydown'`, `'keypress'` or `'keyup'`           |
 | keyValue     | string   | yes __\*__ |           | Any given [KeyboardEvent.key]                    |
 | keyCode      | number   | yes __\*__ |           | Any given [KeyboardEvent.keyCode]                |
-| keyName      | string   | yes __\*__ |           | Any given character                              |
 | onKeyHandle  | function | yes        |           | Function that is called when they key is handled |
 
-__\*__ You should pass only one of these three props: `keyValue`, `keyCode` or `keyName`.
+__\*__ You should pass only one of these two props: `keyValue` or `keyCode`.
 
 [Example](demo/components/examples/component/index.js)
 
@@ -148,16 +146,13 @@ React does a fine job supporting these already via [keyboard events](https://fac
 
 TODO: explain the differences between the different key events.
 
-## `keyValue`, `keyCode`, `keyName`
+## `keyValue`, `keyCode`
 
 We recommend you to use the new Web standard [KeyboardEvent.key] over the deprecated
 [KeyboardEvent.keyCode].
 
 Be cautious not to use the `key` property like the spec suggests, use `keyValue`,
 this is due to [key] being a reserved property in React.
-
-`keyName` was an in-between solution powered by [keycodes] to support human readable strings,
-this property is deprecated and will be removed in future versions.
 
 __Browser support:__
 
@@ -231,5 +226,4 @@ to the [Contributor Covenant](http://contributor-covenant.org/) code of conduct.
 [W3C Working Draft]: https://www.w3.org/TR/DOM-Level-3-Events-key/
 [KeyboardEvent.key]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
 [KeyboardEvent.keyCode]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
-[keycodes]: https://www.npmjs.com/package/keycodes
 [key]: https://facebook.github.io/react/docs/create-fragment.html
