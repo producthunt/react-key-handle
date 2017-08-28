@@ -1,5 +1,7 @@
 # react-key-handler 🔑
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ayrton/react-key-handler.svg)](https://greenkeeper.io/)
+
 [![npm version](https://img.shields.io/npm/v/react-key-handler.svg)](https://www.npmjs.com/package/react-key-handler) [![License](https://img.shields.io/npm/l/react-key-handler.svg)](https://www.npmjs.com/package/react-key-handler) [![Build Status](https://travis-ci.org/ayrton/react-key-handler.svg?branch=master)](https://travis-ci.org/ayrton/react-key-handler)
 
 React component to handle keyboard events (such as keyup, keydown & keypress).
