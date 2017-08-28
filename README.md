@@ -77,7 +77,7 @@ The prop types of the `KeyHandler` component are:
 
 | Name         | Type     | Required   | Default   |                                        |
 | ------------ | -------- | ---------- | --------- | -------------------------------------- |
-| keyEventName | string   | yes        | `'keyup'` | `'keydown'`, `'keypress'` or `'keyup'` |
+| keyEventName | string   | no         | `'keyup'` | `'keydown'`, `'keypress'` or `'keyup'` |
 | keyValue     | string   | yes __\*__ |           | Any given [KeyboardEvent.key]          |
 | keyCode      | number   | yes __\*__ |           | Any given [KeyboardEvent.keyCode]      |
 
@@ -125,7 +125,7 @@ The prop types of the `KeyHandler` component are:
 
 | Name         | Type     | Required   | Default   |                                                  |
 | ------------ | -------- | ---------- | --------- | ------------------------------------------------ |
-| keyEventName | string   | yes        | `'keyup'` | `'keydown'`, `'keypress'` or `'keyup'`           |
+| keyEventName | string   | no         | `'keyup'` | `'keydown'`, `'keypress'` or `'keyup'`           |
 | keyValue     | string   | yes __\*__ |           | Any given [KeyboardEvent.key]                    |
 | keyCode      | number   | yes __\*__ |           | Any given [KeyboardEvent.keyCode]                |
 | onKeyHandle  | function | yes        |           | Function that is called when they key is handled |
