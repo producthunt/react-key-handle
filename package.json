@@ -35,7 +35,7 @@
     "handler"
   ],
   "devDependencies": {
-    "app-module-path": "^1.0.6",
+    "app-module-path": "^2.2.0",
     "babel-core": "^6.14.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.5",
