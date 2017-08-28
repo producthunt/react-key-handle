@@ -57,7 +57,7 @@
     "react-dom": "^0.14.0 || ^15.0.0-0",
     "rimraf": "^2.5.1",
     "sinon": "^1.17.3",
-    "webpack": "^1.12.14",
+    "webpack": "^2.6.1",
     "webpack-dev-server": "^1.14.1"
   },
   "peerDependencies": {
