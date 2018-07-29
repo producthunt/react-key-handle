@@ -15,7 +15,11 @@
     "mocha": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:flowtype/recommended",
+    "plugin:react/recommended"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -25,7 +29,7 @@
     "sourceType": "module"
   },
   "plugins": [
-    "react",
-    "flow-vars"
+    "flowtype",
+    "react"
   ]
 }
