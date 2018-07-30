@@ -15,7 +15,6 @@ module.exports = {
         },
         exclude: /node_modules/,
       },
-      // Should be a pre-loader and probably b4 babel but can't get it to work :-(
       {
         test: /\.js$/,
         use: {
